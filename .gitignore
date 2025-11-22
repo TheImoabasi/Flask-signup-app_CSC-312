@@ -1,0 +1,10 @@
+# Ignore venv
+venv/
+
+# Ignore Docker
+# .Dockerfile
+# docker-compose.yaml
+
+# Ignore Python
+__pycache__
+*.pyc
