@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: CSC312_DB
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+
+  # flask:
+  #   build: .
+  #   container_name: csc312
+  #   restart: always
+  #   ports:
+  #     - '5003:5003'
+  #   depends_on:
+  #     - mysql
+  #   environment:
+  #     - FLASK_ENV:development
+
+volumes:
+  mysql_data:
